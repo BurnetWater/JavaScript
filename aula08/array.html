@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo</title>
+    <style>
+        body{
+            width: 650px;
+            text-align: center;
+            margin: 50px auto;
+            font-size: 20px;
+        }
+        body h1{
+            background-color:blue ;
+            color: white;
+            padding: 10px;
+            margin: -10px -10px 20px -10px;
+            border-radius: 10px 10px 0px 0px;
+            border-bottom: solid 3px black;            
+        }
+        main{
+            background-color: white;
+            margin: auto;
+            padding: 10px;
+            border-radius: 13px ;
+            border: solid 3px black;
+        }
+        p{
+            font-size: 18px;
+            margin-bottom: 0px;
+            margin-top: 20px;
+        }
+        .btn{
+            margin-top: 20px;
+            font-size: 16px;
+            background-color: white;
+            border: solid 1px black;
+            padding: 3px;
+        }
+        div{
+            margin-top: 30px;
+            font-size: 25px;
+            text-align: center;
+        }
+        #listArray{
+            width: 600px;
+            margin-top: 20px;
+        }
+        .titulo{
+            font-size: 18px;
+            text-align: center;
+        }
+        #inputNum{
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <h1>ARRAY</h1>
+            Digite um número (1 - 100):
+        <input type="number" id="inputNum">
+
+        <input type="button" value="Adcionar" class="btn" id="btnAdd" onclick="adcionar()">
+        
+        <select id="listArray" size="10">
+            <option class="titulo"> Os Números Aparecerão Abaixo </option>     
+        </select>
+
+        <input type="button" value="Finalizar" class="btn" id="btnEnd" onclick="finalizar()">
+        <div id="res"></div>
+
+        
+    </main>
+    <script>
+        let num = document.querySelector("input#inputNum")
+        let res = document.querySelector("div#res")
+        let lista = document.querySelector("select#listArray")
+        let valores= []
+
+        function isNumero(n) {
+            if (Number(n) >= 1 && Number(n) <= 100) {
+                return true
+            }
+            else{
+                return false
+            }
+        }
+        
+        function inLista(n,l) {
+            if (l.indexOf(Number(n)) != -1) {
+                return true
+            }
+            else{
+                return false
+            }
+        }
+        
+        function adcionar() {
+
+            if (isNumero(num.value) && !inLista(num.value,valores)) {
+                valores.push(Number(num.value))
+                let item = document.createElement("option")
+                item.text = `Valor ${num.value} adcionado`
+                lista.appendChild(item)
+                res.innerHTML = ""
+            }
+            else{
+                window.alert("Valor inválido ou já encontrado na lista")
+            }
+            num.value = ""
+            num.focus()
+        }
+
+        function finalizar() {
+            if (valores.length == 0) {
+                window.alert("Adcione Valores Primeiro!")
+            }
+            else{
+                let tot = valores.length
+                let maior = valores[0]
+                let menor = valores[1]
+                let soma = 0
+                let media = 0
+                for (let i in valores) {
+                    soma += valores[i]
+                    if (valores[i] > maior) {
+                        maior = valores[i]
+                    }
+                    if (valores[i] < menor) {
+                        menor = valores[i]
+                    }
+                }
+                
+                media = soma/tot
+                res.innerHTML = ""
+                res.innerHTML += `<p>Ao todo, temos ${tot} números cadastrados.</p>`
+                res.innerHTML += `<p>O maior valor informado foi o ${maior}</p>`
+                res.innerHTML += `<p>O maior valor informado foi o ${menor}</p>`
+                res.innerHTML += `<p>As soma dos valores informados foi igual a ${soma}</p>`
+                res.innerHTML += `<p>A média dos valores informados igual a ${media}</p>`
+
+            }
+        }
+    </script>
+</body>
+</html>

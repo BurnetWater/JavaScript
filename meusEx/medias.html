@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medias de alunos</title>
+    <style>
+         
+        body{
+            width: 650px;
+            text-align: center;
+            margin: 50px auto;
+            font-size: 20px;
+        }
+        body h1{
+            background-color:blue ;
+            color: white;
+            padding: 10px;
+            margin: -10px -10px 20px -10px;
+            border-radius: 10px 10px 0px 0px;
+            border-bottom: solid 3px black;
+            
+        }
+        main{
+            background-color: white;
+            margin: auto;
+            padding: 10px;
+            border-radius: 13px ;
+            border: solid 3px black;
+        }
+
+    </style>
+
+</head>
+<body>
+    <main><h1>Calculadora de Médias</h1>
+    <script>
+        var nota1 = Number(window.prompt('Digite a nota 1'))
+        var nota2 = Number(window.prompt('Digite a nota 2'))
+        var nota3 = Number(window.prompt('Digite a nota 3'))
+        var nota4 = Number(window.prompt('Digite a nota 4'))
+        var media = (nota1 + nota2 + nota3 + nota4)/4
+        window.document.writeln(`<p>A média desse aluno é:<strong> ${media.toFixed(2)}</strong> </p></main>`)
+    </script>
+</body>
+</html>

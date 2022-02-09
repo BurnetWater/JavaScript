@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Urna Eletrônica</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+        <body>
+            <main>
+                <section>
+                    <h1 id="Candidato">VISOR DE CANDIDATO</h1>
+                    <img src="http://g37.com.br/imagens/90596/justica-eleitoral-de-divinopolis-so-atendera-por-agendamento-eletronico-devido-ao-coronavirus_13320201554150.png" alt="Imagem do Candidato" id="imagem">
+                </section>
+
+                <aside>
+                    <div id="visor"></div>
+                    <div>
+                        <input type="button" value="1" class="btnNum" onclick="pressNum(this)">
+                        <input type="button" value="2" class="btnNum" onclick="pressNum(this)">
+                        <input type="button" value="3" class="btnNum" onclick="pressNum(this)">
+                    </div>
+                    <div>    
+                        <input type="button" value="4" class="btnNum" onclick="pressNum(this)">
+                        <input type="button" value="5" class="btnNum" onclick="pressNum(this)">
+                        <input type="button" value="6" class="btnNum"  onclick="pressNum(this)">
+                    </div>
+                    <div>
+                        <input type="button" value="7" class="btnNum"  onclick="pressNum(this)">
+                        <input type="button" value="8" class="btnNum"  onclick="pressNum(this)">
+                        <input type="button" value="9" class="btnNum"  onclick="pressNum(this)">  
+                    </div>
+                    <input type="button" value="0" class="btnNum"  onclick="pressNum(this)"> 
+                    <div>
+                        <input type="button" value="NULO" class="btnEspecial" id="null" onclick="nulo()">
+                        <input type="button" value="CORRIGE" class="btnEspecial" id="erase" onclick="corrige()">
+                        <input type="button" value="CONFIRMAR" class="btnEspecial" id="confirm" onclick="confirma()">
+                    </div>
+                </aside>
+            </main>
+            <script src="prog.js"></script>
+        </body>
+</html>

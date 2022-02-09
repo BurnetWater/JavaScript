@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatorial - DOM</title>
+    <style>
+        body{
+            width: 650px;
+            text-align: center;
+            margin: 50px auto;
+            font-size: 20px;
+        }
+        body h1{
+            background-color:blue ;
+            color: white;
+            padding: 10px;
+            margin: -10px -10px 20px -10px;
+            border-radius: 10px 10px 0px 0px;
+            border-bottom: solid 3px black;
+            
+        }
+        main{
+            background-color: white;
+            margin: auto;
+            padding: 10px;
+            border-radius: 13px ;
+            border: solid 3px black;
+        }
+        #botao{
+            background-color: white;
+            border: solid 0.5px black;
+            padding: 3px;
+            margin-left: 5px;
+        }
+        </style>
+</head>
+<body>
+    <main>
+        <h1>Calculadora de Fatoriais</h1>
+        <input type="number" id="txtn">
+        <input type="button" id="botao" value="CALCULAR" onclick="fatorial()">
+        <div id="res"></div>
+    </main>
+    
+    <script>
+        
+        function fatorial() {
+            
+            var txtnum = window.document.getElementById("txtn")
+            var num = Number(txtnum.value)
+            var resposta = window.document.getElementById("res")
+            var fatorial = 1
+
+            for (var i = 1; i <= num; i++) {
+                fatorial *= i
+            }
+            resposta.innerHTML = `<p>A resposta é <strong>${fatorial}</strong></p>`
+        }
+        
+
+    </script>
+</body>
+</html>

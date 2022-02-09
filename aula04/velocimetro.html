@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocimetro</title>
+    <style>
+        body{
+            width: 650px;
+            text-align: center;
+            margin: 50px auto;
+            font-size: 20px;
+        }
+        body h1{
+            background-color:blue ;
+            color: white;
+            padding: 10px;
+            margin: -10px -10px 20px -10px;
+            border-radius: 10px 10px 0px 0px;
+            border-bottom: solid 3px black;
+            
+        }
+        main{
+            background-color: white;
+            margin: auto;
+            padding: 10px;
+            border-radius: 13px ;
+            border: solid 3px black;
+        }
+        #botao{
+            background-color: white;
+            border: solid 0.5px black;
+            padding: 3px;
+            margin-left: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Velocímetro</h1>
+        Velocidade do carro
+        <input type="number" id="velocidade">
+        <input type="button" value="MEDIR" onclick="velocimetro()" id="botao">
+        <div id="resposta"></div>
+    </main>
+
+    <script>
+
+        function velocimetro() {
+            var res = document.getElementById("resposta")
+            var txtvelo = document.getElementById("velocidade")
+            var nvelo = Number(txtvelo.value)
+            
+            if (nvelo > 80) {
+                res.innerHTML = "<p>Você está muito rápido. <br><strong>MULTADO</strong></p>"
+            }
+            else {
+                res.innerHTML = "<p>Tá de boa chefia</p>"
+            }
+        }
+    </script>
+</body>
+</html>

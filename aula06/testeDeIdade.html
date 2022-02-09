@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo</title>
+    <style>
+        body{
+            width: 650px;
+            margin: 50px auto;
+            font-size: 20px;            
+        }
+        body h1{
+            background-color:blue ;
+            color: white;
+            padding: 10px;
+            margin: -10px -10px 20px -10px;
+            border-radius: 10px 10px 0px 0px;
+            border-bottom: solid 3px black;            
+        }
+        main{
+            background-color: white;
+            margin: auto;
+            padding: 10px;
+            border-radius: 13px ;
+            border: solid 3px black;
+        }
+        #foto{
+            display: block;
+            margin: 0 auto;
+        }
+        #botao{
+            background-color: white;
+            border: solid 0.5px black;
+            padding: 5px;
+            margin-left: 5px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input{
+            margin: 10px;
+        }
+        #resultados{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Testador de Idade</h1>
+
+        Idade de Nascimento<input type="number" id="txtAno" min="1910"><br>
+
+        Sexo:<input type="radio" name="radSex" id="radBtn">
+        <label for="radBtn">Masculino</label>
+
+        <input type="radio" name="radSex" id="radBtn">
+        <label for="rasBtn">Feminino</label><br>
+
+        <input type="button" value="Verificar" id="botao" onclick="verificar()">
+
+        <div id="resultados">
+            Preencha os dados acima para ver o resultado
+        </div>
+    </main>
+    <script>
+        function verificar() {
+            var data = new Date()
+            var ano = data.getFullYear()
+            var fAno = document.getElementById("txtAno")
+            var res = document.getElementById ("resultados")
+            var fSex = document.getElementsByName ("radSex")
+            var img = document.createElement ("img")
+            img.setAttribute ("id","foto")
+            
+            if (fAno.value.length == 0 || fAno.value > ano || fSex[0].checked == false && fSex[1].checked == false) {
+                alert("Preencha os dados!")
+            }
+            else{
+                var genero = ""
+                var idade = ano - fAno.value
+                if (fSex[1].checked) {
+                    genero = "a mulher"
+
+                    if (idade > 0 && idade <= 10) {
+                        img.setAttribute ('src', 'img/foto-bebe-f.png')
+                    }
+                    else if (idade <= 20 ) {
+                        img.setAttribute ('src', 'img/foto-jovem-f.png')
+                    }
+                    else if (idade <= 50 ) {
+                        img.setAttribute ('src', 'img/foto-adulto-f.png')
+                    }
+                    else {
+                        img.setAttribute ('src', 'img/foto-idoso-f.png')
+                    }
+                }
+                else{
+                    genero = "homem"
+
+                    if (idade > 0 && idade <= 10) {
+                        img.setAttribute ('src', 'img/vfoto-bebe-m.png')
+                    }
+                    else if (idade <= 20 ) {
+                        img.setAttribute ('src', 'img/foto-jovem-m.png')
+                    }
+                    else if (idade <= 50 ) {
+                        img.setAttribute ('src', 'img/foto-adulto-m.png')
+                    }
+                    else {
+                        img.setAttribute ('src', 'img/foto-idoso-m.png')
+                    }
+                    
+                }
+                //res.style.textAlign='center'
+                //img.style.margin = 'auto'
+                res.innerHTML = `Detectamos um ${genero} de 
+                ${idade} anos`
+                res.appendChild(img)
+                
+            }
+        }
+    </script>
+</body>
+</html>

@@ -122,10 +122,10 @@
             else{
                 let tot = valores.length
                 let maior = valores[0]
-                let menor = valores[1]
+                let menor = valores[0]
                 let soma = 0
                 let media = 0
-                for (let i in valores) {
+                for (let i in valores) { //para cada posição ${i} 'in' valores
                     soma += valores[i]
                     if (valores[i] > maior) {
                         maior = valores[i]
@@ -139,8 +139,8 @@
                 res.innerHTML = ""
                 res.innerHTML += `<p>Ao todo, temos ${tot} números cadastrados.</p>`
                 res.innerHTML += `<p>O maior valor informado foi o ${maior}</p>`
-                res.innerHTML += `<p>O maior valor informado foi o ${menor}</p>`
-                res.innerHTML += `<p>As soma dos valores informados foi igual a ${soma}</p>`
+                res.innerHTML += `<p>O menor valor informado foi o ${menor}</p>`
+                res.innerHTML += `<p>A soma dos valores informados foi igual a ${soma}</p>`
                 res.innerHTML += `<p>A média dos valores informados igual a ${media}</p>`
 
             }
